@@ -21,6 +21,11 @@ jobs:
     if: github.event_name == 'push'
 
     steps:
+    - name: Add profile credentials to ~/.aws/credentials
+      run: |
+        aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID --profile terraform
+        aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile terraform
+
     - name: Checkout
       uses: actions/checkout@v4
 
