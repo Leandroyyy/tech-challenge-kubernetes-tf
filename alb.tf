@@ -9,7 +9,7 @@ resource "aws_alb" "alb" {
 
 resource "aws_lb_listener" "listener" {
   load_balancer_arn = aws_alb.alb.arn
-  port              = 80
+  port              = 8080
   protocol          = "HTTP"
 
   default_action {
